@@ -1,9 +1,11 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QGLWidget>
 #include "cinder/app/AppBasic.h"
 #include "cinder/Camera.h"
+
+#include <QGLWidget>
+
 using namespace ci;
 
 class QtLogo;

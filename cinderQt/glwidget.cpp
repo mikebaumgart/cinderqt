@@ -1,9 +1,10 @@
+
+#include "glwidget.h"
+
 #include <QtGui>
 #include <QtOpenGL>
 #include <math.h>
 
-#include "glwidget.h"
-#include "cinder/Arcball.h"
 
 #ifndef GL_MULTISAMPLE
 #define GL_MULTISAMPLE  0x809D
