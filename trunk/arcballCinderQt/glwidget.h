@@ -1,10 +1,10 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QGLWidget>
 #include "cinder/app/AppBasic.h"
 #include "cinder/Camera.h"
 #include "cinder/Arcball.h"
+#include <QGLWidget>
 
 
 using namespace ci;

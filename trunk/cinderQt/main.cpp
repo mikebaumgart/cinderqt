@@ -1,9 +1,9 @@
-#include <QApplication>
-#include <QDesktopWidget>
-
 #include "window.h"
 #include "cinder/app/AppBasic.h"
 #include "cinder/Camera.h"
+
+#include <QApplication>
+#include <QDesktopWidget>
 
 int main(int argc, char *argv[])
 {

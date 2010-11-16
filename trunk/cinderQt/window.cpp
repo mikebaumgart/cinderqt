@@ -1,7 +1,8 @@
-#include <QtGui>
 
-#include "glwidget.h"
 #include "window.h"
+#include "glwidget.h"
+
+#include <QtGui>
 
 
 Window::Window() {
