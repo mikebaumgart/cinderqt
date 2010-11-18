@@ -62,7 +62,8 @@ void GLWidget::paintGL() {
 
 	
 	cinder::TriMesh chair;
-    ObjLoader loader( loadFile("chair.obj") );
+	cinder::DataSourcePathRef src(loadFile("chair.obj")); 
+    ObjLoader loader( src->createStream(), true );
     loader.load(&chair);	
     gl::draw( chair );
 
