@@ -29,6 +29,7 @@ public:
     QSize sizeHint() const;
 	
 		
+	cinder::TriMesh objFile;
 	
 	
 public slots:

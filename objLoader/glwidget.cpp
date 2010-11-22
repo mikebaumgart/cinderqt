@@ -17,6 +17,21 @@ GLWidget::GLWidget(QWidget *parent)
 	
 	_mouseState = UP;
 	
+	QString fileName = QFileDialog::getOpenFileName(this, "Open OBJ file", ".", "OBJ (*.obj)");
+    
+	if(!fileName.isEmpty()) {
+    
+		cinder::DataSourcePathRef src(loadFile(fileName.toStdString())); 
+		ObjLoader loader( src->createStream(), true );
+		loader.load(&objFile);	
+		
+		
+    } else {
+	
+		exit(1);
+		
+	}
+	
 	
 	
 }
@@ -46,6 +61,7 @@ void GLWidget::initializeGL() {
     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
 	
 	
+
 	
 	
 }
@@ -60,14 +76,9 @@ void GLWidget::paintGL() {
 	gl::rotate( _arcball.getQuat() );
 	
 	
-	gl::drawCube(Vec3f(0,0,0), Vec3f(2,2,2));
-
-	cinder::TriMesh chair;
-	string path = "/Users/dlynch/cinderqt/objLoader/chair.obj";
-	cinder::DataSourcePathRef src(loadFile(path)); 
-    ObjLoader loader( src->createStream(), true );
-    loader.load(&chair);	
-    gl::draw( chair );
+	//	gl::drawCube(Vec3f(0,0,0), Vec3f(2,2,2));
+  
+	gl::draw( objFile );
 
 	glPopMatrix();
 }
@@ -111,7 +122,5 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
 void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     _lastPos = event->pos();
 	if (_mouseState != UP) _arcball.mouseDrag(Q2C(event->pos()));
-	updateGL();
-	printf("(x,y) (%d,%d)\n,", event->pos().x(), event->pos().y());
-	
+	updateGL();	
 }
