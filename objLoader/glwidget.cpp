@@ -9,6 +9,8 @@
 
 #define Q2C(a) Vec2i(a.x(),a.y())
 
+#include <string>
+using namespace std;
 
 GLWidget::GLWidget(QWidget *parent)
 : QGLWidget(QGLFormat(QGL::SampleBuffers), parent) {
@@ -60,9 +62,9 @@ void GLWidget::paintGL() {
 	
 	gl::drawCube(Vec3f(0,0,0), Vec3f(2,2,2));
 
-	
 	cinder::TriMesh chair;
-	cinder::DataSourcePathRef src(loadFile("chair.obj")); 
+	string path = "/Users/dlynch/cinderqt/objLoader/chair.obj";
+	cinder::DataSourcePathRef src(loadFile(path)); 
     ObjLoader loader( src->createStream(), true );
     loader.load(&chair);	
     gl::draw( chair );
