@@ -1,0 +1,1 @@
+The goal of Cinder Qt is to provide a unified build of both Cinder and Qt.
